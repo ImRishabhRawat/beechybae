@@ -25,12 +25,13 @@
 
 	/* #18312e in decimal RGB */
 	/* --color-one: rgb(24, 49, 46); */
-	--color-one: #03045E;
+	/* --color-one: #03045E; */
+	--color-one: #0096c7;
 
 	/* #152c29 in decimal RGB */
 	/* --color-two: rgb(21, 44, 41); */
-	--color-two: #023E8A;
-
+	/* --color-two: #023E8A; */
+	--color-two: #00b4d8;
 	/* #a7a7a7 in decimal RGB - for gray text */
 	--color-three: rgb(167, 167, 167);
 
