@@ -32,8 +32,8 @@
 	/* --color-two: rgb(21, 44, 41); */
 	/* --color-two: #023E8A; */
 	--color-two: #00b4d8;
-	/* #a7a7a7 in decimal RGB - for gray text */
-	--color-three: rgb(167, 167, 167);
+	/* #333333 in decimal RGB - for gray text (improved contrast) */
+	--color-three: rgb(51, 51, 51);
 
 	/* #5e6f6d in decimal RGB - border */
 	--color-four: rgb(94, 111, 109);
