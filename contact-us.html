@@ -3,7 +3,7 @@
 	<!-- Mirrored from kalanidhithemes.com/live-preview/landing-page/BreezyBae/all-demo/BreezyBae-5-Rollingimages-Hero-Center-Header/contact-us.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 25 Aug 2025 07:59:25 GMT -->
 	<head>
 		<meta charset="utf-8" />
-		<title>BreezyBae - Restaurants HTML Template - Menus List</title>
+		<title>BreezyBae - Restaurants</title>
 		<!-- Stylesheets -->
 		<link href="bootstrap.css" rel="stylesheet" />
 		<link href="style.css" rel="stylesheet" />
@@ -54,7 +54,9 @@
 										Visit us : 4a, 232, Chittaranjan Ave, Simla, Machuabazar,
 										Kolkata, West Bengal
 									</li>
-									<li><a href="tel:+11234567890"> Call: +85-123-456789 </a></li>
+									<li>
+										<a href="tel:+ 91-7003378937"> Call: + 91-7003378937 </a>
+									</li>
 								</ul>
 							</div>
 							<div class="top-right clearfix">
@@ -106,13 +108,11 @@
 							<!--Logo-->
 							<div class="logo-box">
 								<div class="logo">
-									<a
-										href="index.html"
-										title="BreezyBae - Restaurants HTML Template"
+									<a href="index.html" title="BreezyBae - Restaurants "
 										><img
 											src="images/logo.png"
 											alt=""
-											title="BreezyBae - Restaurants HTML Template"
+											title="BreezyBae - Restaurants "
 									/></a>
 								</div>
 							</div>
@@ -269,6 +269,7 @@
 								<a href="index.html">Home</a>
 							</li>
 							<li><a href="about.html">About Us</a></li>
+							<li><a href="menu-list.html">Our Menu</a></li>
 							<li><a href="our-chef.html">Team Members</a></li>
 							<li><a href="#">Privacy Policy</a></li>
 							<li><a href="contact-us.html">Contact Us</a></li>
@@ -313,12 +314,14 @@
 							<span class="ib-ttl"> Dinner Time</span> - 08.00 pm – 10:30 pm
 						</li>
 						<li>
-							<a href="mailto:booking@domainame.com">booking@domainame.com</a>
+							<a href="mailto:breezybaecafe@gmail.com"
+								>breezybaecafe@gmail.com</a
+							>
 						</li>
 					</ul>
 					<div class="booking-info">
 						<div class="bk-no">
-							<a href="tel:+88-123-123456">Booking: +88-123-123456</a>
+							<a href="tel:+ 91-7003378937">Booking: + 91-7003378937</a>
 						</div>
 					</div>
 				</div>
@@ -370,7 +373,7 @@
 									10:30 pm <br />
 									<br />
 									<span class="more-link">
-										Booking : <a href="tel:+85-123-456789">+85-123-456789</a>
+										Booking : <a href="tel:+ 91-7003378937">+ 91-7003378937</a>
 									</span>
 									<br />
 									<span class="more-link">
@@ -404,13 +407,50 @@
 										</div>
 									</div>
 									<div class="default-form reservation-form">
-										<form method="post" action="#">
+										<!-- Success/Error Messages -->
+										<div
+											id="form-messages"
+											class="form-messages"
+											style="
+												display: none;
+												padding: 15px;
+												margin-bottom: 20px;
+												border-radius: 4px;
+											">
+											<div
+												id="success-message"
+												class="success-message"
+												style="
+													display: none;
+													background-color: #d4edda;
+													color: #155724;
+													border: 1px solid #c3e6cb;
+												">
+												<i class="fa fa-check-circle"></i> Thank you! Your
+												message has been sent successfully. We'll get back to
+												you soon.
+											</div>
+											<div
+												id="error-message"
+												class="error-message"
+												style="
+													display: none;
+													background-color: #f8d7da;
+													color: #721c24;
+													border: 1px solid #f5c6cb;
+												">
+												<i class="fa fa-exclamation-triangle"></i> Sorry, there
+												was an error sending your message. Please try again or
+												contact us directly.
+											</div>
+										</div>
+										<form method="post" action="#" id="contactForm">
 											<div class="clearfix">
 												<div class="form-group">
 													<div class="field-inner">
 														<input
 															type="text"
-															name="fieldname"
+															name="name"
 															value=""
 															placeholder="Your Name"
 															required="" />
@@ -419,8 +459,8 @@
 												<div class="form-group">
 													<div class="field-inner">
 														<input
-															type="text"
-															name="fieldname"
+															type="email"
+															name="email"
 															value=""
 															placeholder="Your Email"
 															required="" />
@@ -429,8 +469,8 @@
 												<div class="form-group">
 													<div class="field-inner">
 														<input
-															type="text"
-															name="fieldname"
+															type="tel"
+															name="phone"
 															value=""
 															placeholder="Phone Number"
 															required="" />
@@ -440,7 +480,7 @@
 												<div class="form-group">
 													<div class="field-inner">
 														<textarea
-															name="fieldname"
+															name="message"
 															placeholder="Special Request"
 															required=""></textarea>
 													</div>
@@ -470,7 +510,7 @@
 			<section class="contact-map">
 				<div class="row clearfix">
 					<iframe
-						src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d81392.11276571127!2d-74.03116502768826!3d40.70144849986174!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2sin!4v1667928043843!5m2!1sen!2sin"
+						src="https://www.google.com/maps?q=4a,232,Chittaranjan+Ave,Simla,Machuabazar,Kolkata,West+Bengal,India&output=embed"
 						width="100%"
 						height="500"
 						style="border: 0"
@@ -524,15 +564,15 @@
 													4a, 232, Chittaranjan Ave, Simla, Machuabazar,
 													Kolkata, West Bengal
 												</li>
-												<li>Daily - 8.00 am to 10.00 pm</li>
+												<li>Daily - 11.00 am to 4.00 am</li>
 												<li>
 													<a href="mailto:booking@domainname.com"
 														>breezybaecafe@gmail.com</a
 													>
 												</li>
 												<li>
-													<a href="tel:+88-123-123456"
-														>Booking Request : +88-123-123456</a
+													<a href="tel:+ 91-7003378937"
+														>Booking Request : + 91-7003378937</a
 													>
 												</li>
 											</ul>
@@ -545,7 +585,46 @@
 												Subscribe us & Get 25% Off. Get latest updates.
 											</div>
 											<div class="newsletter-form">
-												<form method="post" action="#">
+												<!-- Success/Error Messages -->
+												<div
+													id="newsletter-messages"
+													class="form-messages"
+													style="
+														display: none;
+														padding: 10px;
+														margin-bottom: 15px;
+														border-radius: 4px;
+													">
+													<div
+														id="newsletter-success"
+														class="success-message"
+														style="
+															display: none;
+															background-color: #d4edda;
+															color: #155724;
+															border: 1px solid #c3e6cb;
+															font-size: 14px;
+														">
+														<i class="fa fa-check-circle"></i> Thank you for
+														subscribing! You'll receive our latest updates and
+														special offers.
+													</div>
+													<div
+														id="newsletter-error"
+														class="error-message"
+														style="
+															display: none;
+															background-color: #f8d7da;
+															color: #721c24;
+															border: 1px solid #f5c6cb;
+															font-size: 14px;
+														">
+														<i class="fa fa-exclamation-triangle"></i> Sorry,
+														there was an error with your subscription. Please
+														try again.
+													</div>
+												</div>
+												<form method="post" action="#" id="newsletterForm">
 													<div class="form-group">
 														<span class="alt-icon far fa-envelope"></span>
 														<input
@@ -593,20 +672,6 @@
 																><i class="fa-brands fa-instagram"></i
 															></a>
 														</li>
-														<li>
-															<a
-																href="https://www.facebook.com/profile.php?id=61579037446461"
-																aria-label="instagram page"
-																><i class="fa-brands fa-pinterest-p"></i
-															></a>
-														</li>
-														<li>
-															<a
-																href="https://www.facebook.com/profile.php?id=61579037446461"
-																aria-label="pinterest page"
-																><i class="fa-brands fa-youtube"></i
-															></a>
-														</li>
 													</ul>
 												</div>
 
@@ -638,16 +703,17 @@
 			]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script
 		><![endif]-->
 
-		<script src="ery.js"></script>
-		<script src="per.min.js"></script>
-		<script src="tstrap.min.js"></script>
-		<script src="ery-ui.js"></script>
-		<script src="ery.fancybox.js"></script>
-		<script src="per.js"></script>
-		<script src=".js"></script>
-		<script src="ear.js"></script>
-		<script src=".js"></script>
-		<script src="tom-script.js"></script>
+		<script src="jquery.js"></script>
+		<script src="popper.min.js"></script>
+		<script src="bootstrap.min.js"></script>
+		<script src="jquery-ui.js"></script>
+		<script src="jquery.fancybox.js"></script>
+		<script src="swiper.js"></script>
+		<script src="owl.js"></script>
+		<script src="appear.js"></script>
+		<script src="wow.js"></script>
+		<script src="parallax.min.js"></script>
+		<script src="custom-script.js"></script>
 	</body>
 
 	<!-- Mirrored from kalanidhithemes.com/live-preview/landing-page/BreezyBae/all-demo/BreezyBae-5-Rollingimages-Hero-Center-Header/contact-us.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 25 Aug 2025 07:59:25 GMT -->

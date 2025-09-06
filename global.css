@@ -25,7 +25,7 @@
 
 	/* #18312e in decimal RGB */
 	/* --color-one: rgb(24, 49, 46); */
-	/* --color-one: #03045E; */
+	/* --color-one: #3175A1; */
 	--color-one: #0096c7;
 
 	/* #152c29 in decimal RGB */
@@ -130,6 +130,12 @@ body {
 	letter-spacing: 1px;
 	-webkit-font-smoothing: antialiased;
 	-moz-font-smoothing: antialiased;
+}
+.text-mod{
+	font-weight: 600;
+}
+.stroke-text {
+	text-shadow: 1px 1px 2px black, 0 0 1px black;
 }
 
 a {

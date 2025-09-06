@@ -171,7 +171,7 @@
         // Base template for layout
         baseTpl	:
             '<div class="fancybox-container" role="dialog" tabindex="-1">' +
-                '<div class="fancybox-bg"></div>' +
+                // '<div class="fancybox-bg"></div>' +
                 '<div class="fancybox-inner">' +
                     '<div class="fancybox-infobar">' +
                         '<span data-fancybox-index></span>&nbsp;/&nbsp;<span data-fancybox-count></span>' +

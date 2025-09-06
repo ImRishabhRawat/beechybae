@@ -230,7 +230,7 @@
 	position: relative;
 	display: block;
 	float: left;
-	padding-top: 60px ;
+	padding-top: 60px;
 	margin-left: 130px;
 	transition: all 300ms ease;
 	-moz-transition: all 300ms ease;
@@ -1156,8 +1156,8 @@ body.visible-sidebar {
 	overflow-y: auto;
 	z-index: 99999;
 	opacity: 0;
-	background: var(--color-two) url(../images/resource/pattern-dark.png) center
-		top repeat;
+	background: var(--color-two) url(../images/resource/pattern-bg-dark.jpg)
+		bottom no-repeat;
 	visibility: hidden;
 	-webkit-transition: all 0.5s ease;
 	-moz-transition: all 0.5s ease;
@@ -1196,8 +1196,8 @@ body.visible-sidebar {
 
 .info-bar .inner-box {
 	position: relative;
-	background: var(--color-two) url(../images/resource/pattern-dark.png) center
-		top repeat;
+	background: var(--color-two) url(../images/resource/pattern-bg-dark.jpg)
+		bottom repeat;
 	padding-top: 100px;
 	padding-bottom: 50px;
 	padding-left: 30px;
@@ -1373,7 +1373,7 @@ body.visible-sidebar {
 	left: 0;
 	width: 100%;
 	height: 100%;
-	background: url(../images/background/hero-bg.png) no-repeat center center ;
+	background: url(../images/background/hero-bg.png) no-repeat center center;
 	background-size: cover;
 	opacity: 0.8;
 	z-index: 0;
@@ -2790,7 +2790,7 @@ body.visible-sidebar {
 }
 
 .reserve-section.splitscreen .reserv-col .inner {
-	background: url(../images/resource/pattern-dark.png) repeat;
+	background: url(../images/resource/pattern-bg-dark.jpg) bottom repeat;
 	position: relative;
 	padding: 150px 180px;
 	min-height: 100%;
@@ -2834,7 +2834,7 @@ body.visible-sidebar {
 }
 
 .reserve-section.style-two .reserv-col .inner {
-	background: url(../images/resource/pattern-dark.png) repeat;
+	background: url(../images/resource/pattern-bg-dark.jpg) bottom repeat;
 	position: relative;
 	padding: 75px 100px;
 	min-height: 100%;
@@ -2857,7 +2857,7 @@ body.visible-sidebar {
 /* css for style two Reserve for home page ( comon css used as above css) */
 .reserve-section.style-two.reserve-page-2.reserve-homepage {
 	padding-top: 100px;
-	background: url(../images/resource/pattern-dark.png) repeat;
+	background: url(../images/resource/pattern-bg-dark.jpg) bottom repeat;
 	background-color: var(--color-two);
 }
 
@@ -2875,7 +2875,7 @@ body.visible-sidebar {
 
 .reserve-section.style-two.reserve-page-2 {
 	padding-top: 200px;
-	background: url(../images/resource/pattern-dark.png) repeat;
+	background: url(../images/resource/pattern-bg-dark.jpg) bottom repeat;
 	background-color: var(--color-two);
 }
 
@@ -4021,7 +4021,7 @@ body.visible-sidebar {
 }
 
 .main-footer .fluid-section {
-	background: url(../images/resource/pattern-dark.png) repeat;
+	background: url(../images/resource/pattern-bg-dark.jpg) bottom repeat;
 }
 
 .main-footer .upper-section {
@@ -4113,9 +4113,11 @@ body.visible-sidebar {
 	display: inline-flex;
 	align-items: center;
 	position: relative;
-	color: var(--main-color);
+	/* color: var(--main-color); */
+	color: #ffffff;
 	text-transform: uppercase;
 	padding-bottom: 15px;
+	font-weight: 600;
 }
 
 .main-footer .info-col .info h6::before,
@@ -4197,8 +4199,10 @@ body.visible-sidebar {
 
 .main-footer .info-col .newsletter .text {
 	line-height: 1.5em;
+	font-weight: 600;
 	font-size: 14px;
-	color: var(--color-three);
+	/* color: var(--color-three); */
+	color: #ffffffd4;
 }
 
 .main-footer .info-col .newsletter-form {
@@ -5583,7 +5587,7 @@ footer .bottom_footer .social_media li a:hover {
 }
 
 .menu-card-main .top-pattern {
-	background-image: url(../images/resource/pattern-bg-dark.png);
+	background-image: url(../images/resource/pattern-bg-dark.jpg);
 	background-repeat: no-repeat;
 	background-position: bottom center;
 	background-size: cover;
@@ -5598,32 +5602,32 @@ footer .bottom_footer .social_media li a:hover {
 	position: relative;
 	padding: 80px 70px;
 
-	background: #112220;
+	background: #0f2a3a;
 	background: -webkit-linear-gradient(
 		90deg,
-		rgba(17, 34, 32, 1) 0%,
-		rgba(27, 51, 48, 1) 40%,
-		rgba(15, 30, 28, 1) 50%,
-		rgba(27, 51, 48, 1) 60%,
-		rgba(17, 34, 32, 1) 100%
+		rgba(15, 42, 58, 1) 0%,
+		rgba(25, 62, 78, 1) 40%,
+		rgba(13, 38, 54, 1) 50%,
+		rgba(25, 62, 78, 1) 60%,
+		rgba(15, 42, 58, 1) 100%
 	);
 	background: -moz-linear-gradient(
 		90deg,
-		rgba(17, 34, 32, 1) 0%,
-		rgba(27, 51, 48, 1) 40%,
-		rgba(15, 30, 28, 1) 50%,
-		rgba(27, 51, 48, 1) 60%,
-		rgba(17, 34, 32, 1) 100%
+		rgba(15, 42, 58, 1) 0%,
+		rgba(25, 62, 78, 1) 40%,
+		rgba(13, 38, 54, 1) 50%,
+		rgba(25, 62, 78, 1) 60%,
+		rgba(15, 42, 58, 1) 100%
 	);
 	background: linear-gradient(
 		90deg,
-		rgba(17, 34, 32, 1) 0%,
-		rgba(27, 51, 48, 1) 40%,
-		rgba(15, 30, 28, 1) 50%,
-		rgba(27, 51, 48, 1) 60%,
-		rgba(17, 34, 32, 1) 100%
+		rgba(15, 42, 58, 1) 0%,
+		rgba(25, 62, 78, 1) 40%,
+		rgba(13, 38, 54, 1) 50%,
+		rgba(25, 62, 78, 1) 60%,
+		rgba(15, 42, 58, 1) 100%
 	);
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#112220", endColorstr="#112220", GradientType=1);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#0f2a3a", endColorstr="#0f2a3a", GradientType=1);
 }
 
 .menu-card-main::before {
@@ -5823,7 +5827,8 @@ footer .bottom_footer .social_media li a:hover {
 }
 
 .menu-card-style .menu-col .dish-block .desc a {
-	color: var(--color-three);
+	/* color: var(--color-three); */
+	color: var(--main-color);
 }
 
 /*** 
