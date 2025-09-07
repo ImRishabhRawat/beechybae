@@ -936,8 +936,141 @@ if ($(".main-header").length) {
 		});
 	}
 
-	// Initialize reviews carousel when document is ready
+	// Instagram Embeds Loader
+	function loadInstagramEmbeds() {
+		const container = document.getElementById("instagram-carousel-container");
+		const track = document.getElementById("instagramCarouselTrack");
+		const loadingEl = document.getElementById("instagram-loading");
+		if (!container || !track) return;
+
+		// Small delay to simulate loading (optional)
+		setTimeout(() => {
+			// Hide loading indicator
+			if (loadingEl) {
+				loadingEl.style.display = "none";
+			}
+
+			// Get embeds from the JavaScript file
+			const embeds = getInstagramEmbeds(10); // Get up to 10 embeds
+
+			if (embeds && embeds.length > 0) {
+				// Clear existing content
+				track.innerHTML = "";
+
+				// Add each embed
+				embeds.forEach((embed, index) => {
+					const delay = index * 100;
+					const embedContainer = document.createElement("div");
+					embedContainer.className = "instagram-card";
+					embedContainer.innerHTML = `
+						<div class="instagram-embed wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="${delay}ms">
+							${embed}
+						</div>
+					`;
+					track.appendChild(embedContainer);
+				});
+
+				// Show the container
+				container.style.display = "flex";
+
+				// Initialize Instagram carousel
+				initInstagramCarousel();
+
+				// Load Instagram embed script
+				if (!document.querySelector('script[src*="instagram.com/embed.js"]')) {
+					const script = document.createElement("script");
+					script.async = true;
+					script.src = "//www.instagram.com/embed.js";
+					document.head.appendChild(script);
+				} else {
+					// Reinitialize existing embeds
+					if (window.instgrm) {
+						window.instgrm.Embeds.process();
+					}
+				}
+
+				// Reinitialize WOW animations
+				if (typeof WOW !== "undefined") {
+					new WOW().init();
+				}
+			} else {
+				console.error("No Instagram embeds found");
+				// Hide loading and show container anyway
+				container.style.display = "flex";
+				track.innerHTML =
+					'<p class="text-center">Instagram posts will appear here</p>';
+			}
+		}, 500); // 500ms delay for loading effect
+	}
+
+	// Instagram Carousel functionality (copy of reviews carousel)
+	function initInstagramCarousel() {
+		const carousel = document.getElementById("instagramCarousel");
+		const track = document.getElementById("instagramCarouselTrack");
+		const prevBtn = document.getElementById("instagramPrevBtn");
+		const nextBtn = document.getElementById("instagramNextBtn");
+
+		if (!carousel || !track || !prevBtn || !nextBtn) return;
+
+		let currentIndex = 0;
+		const cards = track.children;
+		const totalCards = cards.length;
+
+		if (totalCards === 0) return;
+
+		// Get card width including gap
+		const cardWidth = cards[0].offsetWidth + 20; // 20px gap
+		const visibleCards = Math.floor(carousel.offsetWidth / cardWidth);
+		const maxIndex = Math.max(0, totalCards - visibleCards);
+
+		function updateCarousel() {
+			const translateX = -currentIndex * cardWidth;
+			track.style.transform = `translateX(${translateX}px)`;
+
+			// Update button states
+			prevBtn.classList.toggle("disabled", currentIndex === 0);
+			nextBtn.classList.toggle("disabled", currentIndex >= maxIndex);
+		}
+
+		function goToNext() {
+			if (currentIndex < maxIndex) {
+				currentIndex++;
+				updateCarousel();
+			}
+		}
+
+		function goToPrev() {
+			if (currentIndex > 0) {
+				currentIndex--;
+				updateCarousel();
+			}
+		}
+
+		// Event listeners
+		nextBtn.addEventListener("click", goToNext);
+		prevBtn.addEventListener("click", goToPrev);
+
+		// Initialize
+		updateCarousel();
+
+		// Handle window resize
+		window.addEventListener("resize", () => {
+			const newVisibleCards = Math.floor(carousel.offsetWidth / cardWidth);
+			const newMaxIndex = Math.max(0, totalCards - newVisibleCards);
+			if (currentIndex > newMaxIndex) {
+				currentIndex = newMaxIndex;
+			}
+			updateCarousel();
+		});
+	}
+
+	// Initialize reviews carousel and Instagram embeds when document is ready
 	$(document).ready(function () {
 		initReviewsCarousel();
+
+		// Load Instagram embeds
+		if (document.getElementById("instagram-carousel-container")) {
+			loadInstagramEmbeds();
+		}
 	});
 })(window.jQuery);

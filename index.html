@@ -1597,38 +1597,6 @@
 			<!--Reviews Section-->
 			<section class="reviews-section section-kt">
 				<div class="auto-container">
-					<!-- Business Info Header -->
-					<div class="business-header">
-						<div class="business-info">
-							<div class="business-logo">
-								<img src="images/resource/logo.png" alt="Beechy Bae Cafe" />
-							</div>
-							<div class="business-details">
-								<h3>Beechy Bae Cafe</h3>
-								<div class="rating-summary">
-									<span class="rating-score">4.8</span>
-									<div class="stars">
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-									</div>
-								</div>
-								<p class="review-count">Based on 127 reviews</p>
-								<p class="powered-by">
-									powered by <span class="google-text">Google</span>
-								</p>
-							</div>
-						</div>
-						<div class="review-us-btn">
-							<a href="#" class="review-btn">
-								<span class="google-icon">G</span>
-								<span>review us on</span>
-							</a>
-						</div>
-					</div>
-
 					<!-- Reviews Carousel -->
 					<div class="reviews-carousel-container">
 						<div class="carousel-nav prev-btn" id="prevBtn">
@@ -1915,52 +1883,56 @@
 					<div class="title-box centered">
 						<div class="subtitle"><span>follow us</span></div>
 						<h2>Instagram</h2>
+						<div class="instagram-handle">
+							<a
+								href="https://www.instagram.com/breezybaecafe/"
+								target="_blank"
+								rel="noopener">
+								@breezybaecafe
+							</a>
+						</div>
 					</div>
-					<div class="row justify-content-center clearfix">
-						<!--Block-->
-						<div class="ig-post-block col-lg-3 col-md-6 col-sm-6 col-xs-12">
-							<div
-								class="ig-post-image wow fadeInUp"
-								data-wow-duration="1500ms"
-								data-wow-delay="0ms">
-								<a href="#"
-									><img src="images/resource/insta1.jpg" alt="image"
-								/></a>
+
+					<!-- Loading indicator -->
+					<div id="instagram-loading" class="text-center" style="padding: 40px">
+						<div
+							class="spinner-border"
+							role="status"
+							style="width: 3rem; height: 3rem">
+							<span class="sr-only">Loading Instagram posts...</span>
+						</div>
+						<p class="mt-3">Loading latest posts from @breezybaecafe...</p>
+					</div>
+
+					<!-- Instagram Carousel -->
+					<div
+						class="instagram-carousel-container"
+						style="display: none"
+						id="instagram-carousel-container">
+						<div class="carousel-nav prev-btn" id="instagramPrevBtn">
+							<i class="fa fa-chevron-left"></i>
+						</div>
+
+						<div class="instagram-carousel" id="instagramCarousel">
+							<div class="carousel-track" id="instagramCarouselTrack">
+								<!-- Instagram embeds will be loaded here dynamically -->
 							</div>
 						</div>
-						<!--Block-->
-						<div class="ig-post-block col-lg-3 col-md-6 col-sm-6 col-xs-12">
-							<div
-								class="ig-post-image wow fadeInUp"
-								data-wow-duration="1500ms"
-								data-wow-delay="0ms">
-								<a href="#"
-									><img src="images/resource/insta2.png" alt="image"
-								/></a>
-							</div>
+
+						<div class="carousel-nav next-btn" id="instagramNextBtn">
+							<i class="fa fa-chevron-right"></i>
 						</div>
-						<!--Block-->
-						<div class="ig-post-block col-lg-3 col-md-6 col-sm-6 col-xs-12">
-							<div
-								class="ig-post-image wow fadeInUp"
-								data-wow-duration="1500ms"
-								data-wow-delay="0ms">
-								<a href="#"
-									><img src="images/resource/insta3.jpg" alt="image"
-								/></a>
-							</div>
-						</div>
-						<!--Block-->
-						<div class="ig-post-block col-lg-3 col-md-6 col-sm-6 col-xs-12">
-							<div
-								class="ig-post-image wow fadeInUp"
-								data-wow-duration="1500ms"
-								data-wow-delay="0ms">
-								<a href="#"
-									><img src="images/resource/insta4.png" alt="image"
-								/></a>
-							</div>
-						</div>
+					</div>
+
+					<!-- View more button -->
+					<div class="text-center mt-4">
+						<a
+							href="https://www.instagram.com/breezybaecafe/"
+							target="_blank"
+							rel="noopener"
+							class="theme-btn btn-style-one">
+							<span class="btn-title">View More on Instagram</span>
+						</a>
 					</div>
 				</div>
 			</section>
@@ -2160,6 +2132,7 @@
 		<script src="appear.js"></script>
 		<script src="wow.js"></script>
 		<script src="parallax.min.js"></script>
+		<script src="instagram-embeds.js"></script>
 		<script src="custom-script.js"></script>
 	</body>
 
