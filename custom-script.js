@@ -45,7 +45,10 @@ if ($(".main-header").length) {
 	//Hide Loading Box (Preloader)
 	function handlePreloader() {
 		if ($(".loader-wrap").length) {
-			$(".loader-wrap").delay(500).fadeOut(500);
+			// Show preloader for exactly 1 second, then fade out
+			setTimeout(function () {
+				$(".loader-wrap").fadeOut(500);
+			}, 1000);
 		}
 	}
 
@@ -528,7 +531,8 @@ if ($(".main-header").length) {
    When document is loading, do
    ========================================================================== */
 
-	$(window).on("load", function () {
+	// Start preloader immediately when DOM is ready, not waiting for page load
+	$(document).ready(function () {
 		handlePreloader();
 		if ($("body.page-loaded").length) {
 			$("body").addClass("page-done");
