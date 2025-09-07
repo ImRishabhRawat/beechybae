@@ -1,4 +1,4 @@
-/* BreezyBae - Restaurants HTML Template */
+/* BreezyBae - Cafe & Restro */
 
 @import url("https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&amp;display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&amp;display=swap");
@@ -131,12 +131,13 @@ body {
 	-webkit-font-smoothing: antialiased;
 	-moz-font-smoothing: antialiased;
 }
-.text-mod{
+.text-mod {
 	font-weight: 600;
 }
 .stroke-text {
 	text-shadow: 1px 1px 2px black, 0 0 1px black;
 }
+
 
 a {
 	position: relative;
@@ -486,7 +487,7 @@ figure {
 
 .btn-style-two:hover .btn-wrap .text-two {
 	/* color: var(--color-two); */
-	color:rgb(245, 236, 224)
+	color: rgb(245, 236, 224);
 }
 
 .btn-style-two:hover {

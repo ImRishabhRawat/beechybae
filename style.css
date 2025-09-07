@@ -1,4 +1,4 @@
-/* BreezyBae - Restaurants HTML Template */
+/* BreezyBae - Cafe & Restro */
 
 /* TABLE OF CONTENT 
 
@@ -1801,7 +1801,7 @@ body.visible-sidebar {
 
 .story-section .booking-info {
 	position: relative;
-	display: flex;
+	display: hidden;
 }
 
 .story-section .booking-info .bk-title {
@@ -2063,8 +2063,8 @@ body.visible-sidebar {
 	top: 0;
 	width: 70px;
 	height: 100%;
-	background-color: var(--color-two);
-	background-image: url(../images/resource/pattern-black.png);
+	/* background-color: var(--color-two);
+	background-image: url(../images/resource/pattern-black.png); */
 	background-repeat: repeat;
 	background-position: top center;
 }
@@ -2159,7 +2159,7 @@ body.visible-sidebar {
 	flex-direction: column;
 	justify-content: center; /* Vertical centering inside the column */
 	height: 100%;
-	padding-left: 70px;
+	padding-left: 30px;
 }
 
 .menu-tabs .menu-col.img-col {
@@ -6689,5 +6689,355 @@ html:not(.body-menu-opened) .hamburger .bottom-bun {
 	}
 	100% {
 		width: 100%;
+	}
+}
+
+/***
+
+====================================================================
+  Reviews Section - Google Style Carousel
+====================================================================
+
+***/
+
+.reviews-section {
+	position: relative;
+	padding: 60px 0;
+	background: #f8f9fa;
+	overflow: hidden;
+}
+
+/* Business Header */
+.reviews-section .business-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 40px;
+	padding: 30px;
+	background: #fff;
+	border-radius: 12px;
+	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.reviews-section .business-info {
+	display: flex;
+	align-items: center;
+}
+
+.reviews-section .business-logo {
+	width: 80px;
+	height: 80px;
+	margin-right: 20px;
+	border-radius: 50%;
+	overflow: hidden;
+	background: #f0f0f0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.reviews-section .business-logo img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.reviews-section .business-details h3 {
+	font-size: 24px;
+	font-weight: 600;
+	color: #1a1a1a;
+	margin-bottom: 8px;
+	font-family: "Playfair Display", serif;
+}
+
+.reviews-section .rating-summary {
+	display: flex;
+	align-items: center;
+	margin-bottom: 5px;
+}
+
+.reviews-section .rating-score {
+	font-size: 20px;
+	font-weight: 700;
+	color: #1a1a1a;
+	margin-right: 8px;
+}
+
+.reviews-section .rating-summary .stars {
+	display: flex;
+	margin-right: 10px;
+}
+
+.reviews-section .rating-summary .stars i {
+	color: #fbbc04;
+	font-size: 16px;
+	margin-right: 2px;
+}
+
+.reviews-section .review-count {
+	font-size: 14px;
+	color: #5f6368;
+	margin-bottom: 5px;
+}
+
+.reviews-section .powered-by {
+	font-size: 12px;
+	color: #5f6368;
+	margin-bottom: 0;
+}
+
+.reviews-section .google-text {
+	color: #4285f4;
+	font-weight: 600;
+}
+
+.reviews-section .review-us-btn .review-btn {
+	display: flex;
+	align-items: center;
+	padding: 12px 20px;
+	background: #4285f4;
+	color: #fff;
+	text-decoration: none;
+	border-radius: 6px;
+	font-size: 14px;
+	font-weight: 500;
+	transition: all 0.3s ease;
+}
+
+.reviews-section .review-us-btn .review-btn:hover {
+	background: #3367d6;
+	text-decoration: none;
+	color: #fff;
+}
+
+.reviews-section .google-icon {
+	background: #fff;
+	color: #4285f4;
+	width: 24px;
+	height: 24px;
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-weight: 700;
+	font-size: 14px;
+	margin-right: 8px;
+}
+
+/* Carousel Container */
+.reviews-section .reviews-carousel-container {
+	position: relative;
+	display: flex;
+	align-items: center;
+	gap: 20px;
+}
+
+.reviews-section .reviews-carousel {
+	flex: 1;
+	overflow: hidden;
+	border-radius: 12px;
+}
+
+.reviews-section .carousel-track {
+	display: flex;
+	transition: transform 0.5s ease;
+	gap: 20px;
+}
+
+/* Review Cards */
+.reviews-section .review-card {
+	min-width: 350px;
+	background: #fff;
+	border-radius: 12px;
+	padding: 24px;
+	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+	border: 1px solid #e8eaed;
+	transition: all 0.3s ease;
+}
+
+.reviews-section .review-card:hover {
+	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+	transform: translateY(-2px);
+}
+
+.reviews-section .reviewer-header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-bottom: 16px;
+}
+
+.reviews-section .reviewer-avatar {
+	position: relative;
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	overflow: hidden;
+	margin-right: 12px;
+	background: #4285f4;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.reviews-section .reviewer-avatar img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.reviews-section .avatar-initial {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: #4285f4;
+	color: #fff;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-weight: 600;
+	font-size: 16px;
+	opacity: 0;
+}
+
+.reviews-section .reviewer-info {
+	flex: 1;
+}
+
+.reviews-section .reviewer-info h4 {
+	font-size: 16px;
+	font-weight: 600;
+	color: #1a1a1a;
+	margin-bottom: 4px;
+	line-height: 1.2;
+}
+
+.reviews-section .review-time {
+	font-size: 12px;
+	color: #5f6368;
+}
+
+.reviews-section .google-icon-small {
+	width: 20px;
+	height: 20px;
+	background: #4285f4;
+	color: #fff;
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-weight: 700;
+	font-size: 12px;
+}
+
+.reviews-section .rating {
+	display: flex;
+	align-items: center;
+	margin-bottom: 12px;
+}
+
+.reviews-section .rating i {
+	color: #fbbc04;
+	font-size: 14px;
+	margin-right: 2px;
+}
+
+.reviews-section .review-text p {
+	font-size: 14px;
+	line-height: 1.5;
+	color: #3c4043;
+	margin-bottom: 0;
+}
+
+/* Navigation Arrows */
+.reviews-section .carousel-nav {
+	width: 40px;
+	height: 40px;
+	background: #fff;
+	border: 1px solid #dadce0;
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	transition: all 0.3s ease;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.reviews-section .carousel-nav:hover {
+	background: #f8f9fa;
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.reviews-section .carousel-nav i {
+	color: #5f6368;
+	font-size: 16px;
+}
+
+.reviews-section .carousel-nav:hover i {
+	color: #1a1a1a;
+}
+
+.reviews-section .carousel-nav.disabled {
+	opacity: 0.5;
+	cursor: not-allowed;
+	pointer-events: none;
+}
+
+/* Responsive Design */
+@media (max-width: 991px) {
+	.reviews-section {
+		padding: 40px 0;
+	}
+
+	.reviews-section .business-header {
+		flex-direction: column;
+		text-align: center;
+		gap: 20px;
+	}
+
+	.reviews-section .business-info {
+		flex-direction: column;
+		text-align: center;
+	}
+
+	.reviews-section .business-logo {
+		margin-right: 0;
+		margin-bottom: 15px;
+	}
+
+	.reviews-section .review-card {
+		min-width: 300px;
+	}
+}
+
+@media (max-width: 767px) {
+	.reviews-section .reviews-carousel-container {
+		flex-direction: column;
+		gap: 15px;
+	}
+
+	.reviews-section .carousel-nav {
+		display: none;
+	}
+
+	.reviews-section .review-card {
+		min-width: 280px;
+	}
+
+	.reviews-section .business-header {
+		padding: 20px;
+		margin-bottom: 30px;
+	}
+
+	.reviews-section .business-logo {
+		width: 60px;
+		height: 60px;
+	}
+
+	.reviews-section .business-details h3 {
+		font-size: 20px;
 	}
 }

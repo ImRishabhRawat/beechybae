@@ -728,4 +728,216 @@ if ($(".main-header").length) {
 			}, 5000);
 		}, 1000);
 	});
+
+	// Reviews Carousel Functionality
+	function initReviewsCarousel() {
+		if (!$("#reviewsCarousel").length) return;
+
+		const carousel = document.getElementById("reviewsCarousel");
+		const carouselTrack = document.getElementById("carouselTrack");
+		const prevBtn = document.getElementById("prevBtn");
+		const nextBtn = document.getElementById("nextBtn");
+		const reviewCards = Array.from(
+			carouselTrack.querySelectorAll(".review-card")
+		);
+
+		if (!carouselTrack || !prevBtn || !nextBtn || reviewCards.length === 0)
+			return;
+
+		let currentIndex = 0;
+		let cardsToShow = getCardsToShow();
+		let cardWidth = 350; // Base card width
+		let gap = 20; // Gap between cards
+		let autoSlideInterval;
+		const autoSlideDelay = 4000; // 4 seconds
+
+		// Create infinite loop by managing visible cards array
+		let visibleCards = [...reviewCards];
+
+		// Calculate how many cards to show based on screen size
+		function getCardsToShow() {
+			const width = window.innerWidth;
+			if (width >= 1200) return 3;
+			if (width >= 768) return 2;
+			return 1;
+		}
+
+		// Get next set of cards for infinite loop
+		function getNextCards(startIndex, count) {
+			const result = [];
+			for (let i = 0; i < count; i++) {
+				const index = (startIndex + i) % reviewCards.length;
+				result.push(reviewCards[index]);
+			}
+			return result;
+		}
+
+		// Update visible cards in DOM
+		function updateVisibleCards() {
+			// Get the cards that should be visible
+			const cardsNeeded = cardsToShow + 2; // Show extra cards for smooth transition
+			const newVisibleCards = getNextCards(currentIndex, cardsNeeded);
+
+			// Clear current cards
+			carouselTrack.innerHTML = "";
+
+			// Add new cards
+			newVisibleCards.forEach((card, index) => {
+				const cardClone = card.cloneNode(true);
+				cardClone.style.minWidth = cardWidth + "px";
+				carouselTrack.appendChild(cardClone);
+			});
+
+			visibleCards = newVisibleCards;
+		}
+
+		// Update carousel dimensions
+		function updateCarouselDimensions() {
+			cardsToShow = getCardsToShow();
+			cardWidth =
+				carousel.offsetWidth / cardsToShow -
+				(gap * (cardsToShow - 1)) / cardsToShow;
+
+			updateVisibleCards();
+			updateCarousel();
+		}
+
+		// Update carousel position
+		function updateCarousel() {
+			const translateX = 0; // Always start from 0 since we're updating the DOM
+			carouselTrack.style.transform = `translateX(${translateX}px)`;
+			updateNavigationButtons();
+		}
+
+		// Update navigation button states (always enabled for infinite scroll)
+		function updateNavigationButtons() {
+			// Remove disabled state for infinite scroll
+			prevBtn.classList.remove("disabled");
+			nextBtn.classList.remove("disabled");
+		}
+
+		// Move to next slide (infinite)
+		function nextSlide() {
+			currentIndex = (currentIndex + 1) % reviewCards.length;
+
+			// Smooth transition effect
+			carouselTrack.style.transition = "transform 0.5s ease";
+			carouselTrack.style.transform = `translateX(-${cardWidth + gap}px)`;
+
+			setTimeout(() => {
+				carouselTrack.style.transition = "none";
+				updateVisibleCards();
+				carouselTrack.style.transform = "translateX(0px)";
+
+				// Re-enable transition for next slide
+				setTimeout(() => {
+					carouselTrack.style.transition = "transform 0.5s ease";
+				}, 50);
+			}, 500);
+		}
+
+		// Move to previous slide (infinite)
+		function prevSlide() {
+			currentIndex =
+				currentIndex === 0 ? reviewCards.length - 1 : currentIndex - 1;
+
+			// Smooth transition effect
+			carouselTrack.style.transition = "transform 0.5s ease";
+			carouselTrack.style.transform = `translateX(${cardWidth + gap}px)`;
+
+			setTimeout(() => {
+				carouselTrack.style.transition = "none";
+				updateVisibleCards();
+				carouselTrack.style.transform = "translateX(0px)";
+
+				// Re-enable transition for next slide
+				setTimeout(() => {
+					carouselTrack.style.transition = "transform 0.5s ease";
+				}, 50);
+			}, 500);
+		}
+
+		// Start auto-slide
+		function startAutoSlide() {
+			stopAutoSlide(); // Clear any existing interval
+			autoSlideInterval = setInterval(nextSlide, autoSlideDelay);
+		}
+
+		// Stop auto-slide
+		function stopAutoSlide() {
+			if (autoSlideInterval) {
+				clearInterval(autoSlideInterval);
+				autoSlideInterval = null;
+			}
+		}
+
+		// Event listeners
+		nextBtn.addEventListener("click", () => {
+			nextSlide();
+			stopAutoSlide();
+			setTimeout(startAutoSlide, 2000); // Restart auto-slide after 2 seconds
+		});
+
+		prevBtn.addEventListener("click", () => {
+			prevSlide();
+			stopAutoSlide();
+			setTimeout(startAutoSlide, 2000); // Restart auto-slide after 2 seconds
+		});
+
+		// Pause auto-slide on hover
+		carousel.addEventListener("mouseenter", stopAutoSlide);
+		carousel.addEventListener("mouseleave", startAutoSlide);
+
+		// Handle window resize
+		let resizeTimeout;
+		window.addEventListener("resize", () => {
+			clearTimeout(resizeTimeout);
+			resizeTimeout = setTimeout(() => {
+				updateCarouselDimensions();
+			}, 250);
+		});
+
+		// Initialize
+		updateCarouselDimensions();
+		startAutoSlide();
+
+		// Touch/swipe support for mobile
+		let startX = 0;
+		let isDragging = false;
+
+		carousel.addEventListener("touchstart", (e) => {
+			startX = e.touches[0].clientX;
+			isDragging = true;
+			stopAutoSlide();
+		});
+
+		carousel.addEventListener("touchmove", (e) => {
+			if (!isDragging) return;
+			e.preventDefault();
+		});
+
+		carousel.addEventListener("touchend", (e) => {
+			if (!isDragging) return;
+
+			const endX = e.changedTouches[0].clientX;
+			const diff = startX - endX;
+			const threshold = 50;
+
+			if (Math.abs(diff) > threshold) {
+				if (diff > 0) {
+					nextSlide();
+				} else {
+					prevSlide();
+				}
+			}
+
+			isDragging = false;
+			setTimeout(startAutoSlide, 2000);
+		});
+	}
+
+	// Initialize reviews carousel when document is ready
+	$(document).ready(function () {
+		initReviewsCarousel();
+	});
 })(window.jQuery);
